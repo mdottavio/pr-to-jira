@@ -1,0 +1,30 @@
+{
+  "name": "PR to JIRA",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Replace the Jira id on your branch name by a link to JIRA - inspired by the Fran!",
+  "homepage_url": "https://olapic.com",
+  "icons": {
+    "128": "icons/icon-128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": false
+  },
+  "permissions": [
+    "https://github.com/*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
